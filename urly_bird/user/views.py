@@ -9,13 +9,12 @@ from user.forms import UserForm
 # Create your views here.
 
 def show_user(request, user_id):
-    user = User.objects.get(id=user_id)
-    bookmarks = user.update_set.all()
+    user = User.objects.get(pk=user_id)
+    bookmarks = user.bookmark_set.all()
     return render(request,
                   "bookmarker/user.html",
                   {"user": user,
                    "bookmarks": bookmarks})
-
 
 @login_required
 def edit_profile(request):

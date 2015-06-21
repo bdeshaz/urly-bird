@@ -1,2 +1,9 @@
-<p>{{ bookmark.s_code }}</p>
+<p>
+    <a href="{% url 'show_url' bookmark.s_code %}"
+       class="user-link">Urly_bird/{{ bookmark.s_code }}</a>
+</p>
 
+<p>
+    <a href="{% url 'show_user' bookmark.creator.id %}"
+       class="user-link">{{ bookmark.creator }}</a>
+</p>

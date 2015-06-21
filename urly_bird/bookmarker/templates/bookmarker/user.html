@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2>User {{ user }}</h2>
+    <h2>{{ user }}</h2>
 
 {#    {% if request.user.is_authenticated %}#}
 {#        <form method="POST" action="{% url 'follow_user' user.id %}">#}
@@ -24,12 +24,12 @@
 {#    {% endfor %}#}
 {#    </ul>#}
 {##}
-{#    <h3>Updates</h3>#}
-{#    {% for update in user.updates.all %}#}
-{#        <div>#}
-{#            {% include "updates/_update.html" %}#}
-{#        </div>#}
-{#    {% endfor %}#}
+    <h3>Bookmarks</h3>
+    {% for bookmark in bookmarks %}
+        <div>
+            {% include "bookmarker/_bookmark.html" %}
+        </div>
+    {% endfor %}
 {##}
 {#    <h3>Favorite updates</h3>#}
 {#    {% for update in user.favorited_updates.all %}#}
