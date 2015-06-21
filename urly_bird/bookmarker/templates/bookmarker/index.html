@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>All Bookmarks</h2>
+    {% for bookmark in bookmarks %}
+        <div>
+            {% include "bookmarker/_bookmark" %}
+        </div>
+    {% endfor %}
+{% endblock %}

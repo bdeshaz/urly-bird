@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <h2>{{ header }}</h2>
+    {% for bookmark in bookmarks %}
+        <p>{% include "bookmarker/_bookmark.html" %}</p>
+    {% endfor %}
+
+        <p>
+{#            <a href="{% url 'show_user' bookmark.user.id %}"#}
+{#                    class="user-link">{{ bookmark.creator }}</a>#}
+        </p>
+{% endblock %}

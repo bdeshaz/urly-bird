@@ -16,6 +16,7 @@
         <list>
           <option value="urly_bird.tracker.models.urly_bird" />
           <option value="urly_bird.bookmarker.forms.bookmarker" />
+          <option value="urly_bird.urly_bird.urls.bookmarker" />
         </list>
       </option>
     </inspection_tool>

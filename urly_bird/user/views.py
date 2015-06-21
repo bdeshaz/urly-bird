@@ -9,8 +9,8 @@ from user.forms import UserForm
 # Create your views here.
 
 def show_user(request, user_id):
-    user = User.objects.get(pk=user_id)
-    bookmarks = user.update_set.all().order_by('-posted_at')
+    user = User.objects.get(id=user_id)
+    bookmarks = user.update_set.all()
     return render(request,
                   "bookmarker/user.html",
                   {"user": user,
@@ -36,15 +36,11 @@ def edit_profile(request):
 def user_register(request):
     if request.method == "GET":
         user_form = UserForm()
-        profile_form = ProfileForm()
     elif request.method == "POST":
         user_form = UserForm(request.POST)
-        profile_form = ProfileForm(request.POST)
-        if user_form.is_valid() and profile_form.is_valid():
+        if user_form.is_valid():
             user = user_form.save()
-            profile = profile_form.save(commit=False)
-            profile.user = user
-            profile.save()
+            user.save()
 
             password = user.password
             # The form doesn't know to call this special method on user.
