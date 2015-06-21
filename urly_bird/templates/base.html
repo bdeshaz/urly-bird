@@ -19,7 +19,7 @@
             <a class="navbar-brand" href="{% url 'index' %}">Urly Bird</a>
         </div>
 {#        <ul class="nav navbar-nav navbar-left">#}
-            {#            <li class="active"><a href="#">Active</a></li>#}
+{#                        <li class="active"><a href="#">Active</a></li>#}
 {#            {% if user.is_authenticated %}#}
 {#                <li>#}
 {#                    <a href="{% url "add_bookmark" %}">Post bookmark</a>#}
@@ -34,18 +34,18 @@
 {#        </ul>#}
 
         <ul class="nav navbar-nav navbar-right">
-{#            {% if user.is_authenticated %}#}
-{#                <li>#}
-{#                    <a href="{% url 'edit_profile' %}">Hi, {{ user }}</a>#}
-{#                </li>#}
-{#            {% else %}#}
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url "show_user" user.id %}">Hi! {{ user.username }}</a>
+                </li>
+            {% else %}
                 <li>
                     <a href="{% url "login" %}">Login</a>
                 </li>
                 <li>
                     <a href="{% url "user_register" %}">Register</a>
                 </li>
-{#            {% endif %}#}
+            {% endif %}
         </ul>
     </div>
 </nav>

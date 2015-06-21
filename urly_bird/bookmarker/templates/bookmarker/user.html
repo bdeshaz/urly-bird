@@ -3,38 +3,12 @@
 {% block content %}
     <h2>{{ user }}</h2>
 
-{#    {% if request.user.is_authenticated %}#}
-{#        <form method="POST" action="{% url 'follow_user' user.id %}">#}
-{#            {% csrf_token %}#}
-{#            <input type="submit" value="Follow user" />#}
-{#        </form>#}
-{#    {% endif %}#}
-{##}
-{#    <h3>Followed</h3>#}
-{#    <ul>#}
-{#    {% for profile in user.profile.followed.all %}#}
-{#        <li>{{ profile }}</li>#}
-{#    {% endfor %}#}
-{#    </ul>#}
-{##}
-{#    <h3>Followers</h3>#}
-{#    <ul>#}
-{#    {% for profile in user.profile.followers.all %}#}
-{#        <li>{{ profile }}</li>#}
-{#    {% endfor %}#}
-{#    </ul>#}
-{##}
     <h3>Bookmarks</h3>
     {% for bookmark in bookmarks %}
         <div>
-            {% include "bookmarker/_bookmark.html" %}
+            <a href="{% url 'show_url' bookmark.s_code %}"
+           class="user-link">Urly_bird/{{ bookmark.s_code }}</a>
         </div>
     {% endfor %}
-{##}
-{#    <h3>Favorite updates</h3>#}
-{#    {% for update in user.favorited_updates.all %}#}
-{#        <div>#}
-{#            {% include "updates/_update.html" %}#}
-{#        </div>#}
-{#    {% endfor %}#}
+
 {% endblock %}
