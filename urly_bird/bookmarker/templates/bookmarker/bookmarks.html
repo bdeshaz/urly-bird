@@ -4,11 +4,21 @@
 {% block content %}
     <h2>{{ header }}</h2>
     {% for bookmark in bookmarks %}
-        <p>{% include "bookmarker/_bookmark.html" %}</p>
+        <div class="bookmark {% cycle 'odd' 'even' %}-row">
+            {% include "bookmarker/_bookmark.html" %}
+        </div>
     {% endfor %}
 
-        <p>
-{#            <a href="{% url 'show_user' bookmark.user.id %}"#}
-{#                    class="user-link">{{ bookmark.creator }}</a>#}
-        </p>
+    {% bootstrap_pagination bookmarks %}
+
+{#    {% if bookmarks.has_previous %}#}
+{#        {% url 'index' %} {{ bookmarks.next_page_number }}#}
+{#    {% endif %}#}
+{##}
+{#        {{ bookmarks.number }} {{ bookmarks.paginator.num_pages }}#}
+{##}
+{#    {% if bookmarks.has_next %}#}
+{#        {% url 'index' %} {{ bookmarks.next_page_number }}#}
+{#    {% endif %}#}
+
 {% endblock %}
