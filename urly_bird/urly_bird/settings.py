@@ -44,6 +44,8 @@ INSTALLED_APPS = (
     'hashids',
     'user',
     'bootstrap3',
+    'rest_framework',
+    'api',
 )
 
 MIDDLEWARE_CLASSES = (

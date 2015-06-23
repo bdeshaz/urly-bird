@@ -39,7 +39,7 @@ def show_url(request, s_code):
 
 
 def add_bookmark(request):
-    num = Bookmark.objects.count()
+    num = Bookmark.objects.count()  # TODO link to natural id
     if request.method == "POST":
         form = BookmarkForm(request.POST)
         if form.is_valid():

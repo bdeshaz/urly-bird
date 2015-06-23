@@ -20,6 +20,7 @@ from django.contrib import admin
 from bookmarker import views as bookmarker_views
 
 urlpatterns = [
+    url(r'api/', include('api.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^$', bookmarker_views.index, name="index"),
