@@ -8,7 +8,7 @@ class Bookmark(models.Model):
     creator = models.ForeignKey(User, related_name="bookmarks")
 
     def __str__(self):
-        return self.s_code
+        return self.creator.username
 
 
 

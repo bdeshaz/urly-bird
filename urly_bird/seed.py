@@ -44,7 +44,7 @@ def seed_bookmarks():
     creators = User.objects.all()
 
     for num in range(0, 40):
-        creator = creators[random.randint(0, len(creators) - 1)]
+        creator = creators.get(id=(random.randint(1, len(creators)-1)))
         url = fake.url()
         hashyids = Hashids(min_length=6)
         s_code = hashyids.encode(num)
