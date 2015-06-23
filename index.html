@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Urly-bird by bdeshaz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Urly-bird</h1>
+      <h2 class="project-tagline">W7D4 homework</h2>
+      <a href="https://github.com/bdeshaz/urly-bird" class="btn">View on GitHub</a>
+      <a href="https://github.com/bdeshaz/urly-bird/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/bdeshaz/urly-bird/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="urly-bird" class="anchor" href="#urly-bird" aria-hidden="true"><span class="octicon octicon-link"></span></a>URLy Bird</h1>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Create a URL shortener/bookmarking site with Django.</p>
+
+<h2>
+<a id="objectives" class="anchor" href="#objectives" aria-hidden="true"><span class="octicon octicon-link"></span></a>Objectives</h2>
+
+<h3>
+<a id="learning-objectives" class="anchor" href="#learning-objectives" aria-hidden="true"><span class="octicon octicon-link"></span></a>Learning Objectives</h3>
+
+<p>After completing this assignment, you should be able to:</p>
+
+<ul>
+<li>Extrapolate from current Django projects to build a new project of substantial size and features</li>
+<li>Determine which model field types to use to represent data</li>
+<li>Translate English descriptions of data queries into Django ORM queries</li>
+<li>Use PostgreSQL to store Django data</li>
+<li>Make use of Bootstrap and hand-written CSS to style your application</li>
+<li>Select generic views from Django to speed development</li>
+<li>Generate charts via Django views</li>
+<li>Protect access and choose behavior based on user status</li>
+</ul>
+
+<h2>
+<a id="details" class="anchor" href="#details" aria-hidden="true"><span class="octicon octicon-link"></span></a>Details</h2>
+
+<h3>
+<a id="deliverables" class="anchor" href="#deliverables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deliverables</h3>
+
+<ul>
+<li>A Git repo called urly-bird containing at least:
+
+<ul>
+<li>
+<code>README.md</code> file explaining how to run your project</li>
+<li>a <code>requirements.txt</code> file</li>
+<li>a Django project</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h3>
+
+<ul>
+<li>No PEP8 or Pyflakes warnings or errors</li>
+</ul>
+
+<h2>
+<a id="normal-mode" class="anchor" href="#normal-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Normal Mode</h2>
+
+<p>Create a Django project for a bookmarking site. Users can save URLs with
+a title and an optional description.</p>
+
+<p>Each bookmark should have a unique code -- something like "x1yrd3a" -- for use
+in looking it up later. Create a route like "/b/{code}" that will redirect any
+user -- not just logged in users -- to the bookmark associated with that code.
+The route does not have to look just like the example.</p>
+
+<p>When a user -- anonymous or logged in -- uses a bookmark URL, record that user,
+bookmark, and timestamp. A suggested name for this model is Click, even though
+you can navigate to the URL without a click by entering it in your navigation
+bar.</p>
+
+<p>The site should have user registration, login, and logout.</p>
+
+<p>On a logged in user's index page, they should see a list of the bookmarks
+they've saved in reverse chronological order, paginated. The bookmark links
+should use the internal short-code route, not the original URL. From this page,
+they should be able to edit and delete bookmarks.</p>
+
+<p>A user's bookmark page should be public. When viewing a user's bookmark page
+when not that user, the links to edit and delete bookmarks should not show up.</p>
+
+<p>There should also be a page to view all bookmarks for all users in reverse
+chronological order, paginated.</p>
+
+<p>These features are restated in the following list:</p>
+
+<ul>
+<li>Users can create an account, log in, and log out.</li>
+<li>Users can save a URL as a bookmark with a title and an optional description.</li>
+<li>Users can see all their bookmarks in a paginated list in reverse chronological order.</li>
+<li>Users can edit and delete their own bookmarks.</li>
+<li>Users can see all the bookmarks for another user in a paginated list in reverse chronological order.</li>
+<li>Users can see all the bookmarks for all users in a paginated list in reverse chronological order.</li>
+<li>Users can access a bookmark through a URL with a short code, allowing them to share bookmarks.</li>
+<li>When a user accesses a bookmark, the access is recorded with the bookmark, the user -- or anonymous user -- and the timestamp.</li>
+</ul>
+
+<p>Once you have all these features, you will need to generate a good amount of
+click data. Create fake data for this. Numpy and Faker are useful libraries for
+creating your fake data.</p>
+
+<p>Add a stats page for each link where you can see the traffic for that link for the last 30 days in a line chart.</p>
+
+<p>Add an overall stats page for each user where you can see a table of their links by popularity and their number
+of clicks over the last 30 days. This page should only be visible to that user.</p>
+
+<h2>
+<a id="hard-mode" class="anchor" href="#hard-mode" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hard Mode</h2>
+
+<p>For hard mode, do everything shown above, plus any of the following features.</p>
+
+<ul>
+<li>Allow users to create topical lists of URLs, with each list having a title and
+optional description.</li>
+<li>Allow resorting of URLs on topical list pages.</li>
+<li>Allow users to add <a href="https://en.wikipedia.org/wiki/Tag_(metadata)">tags</a> to their URLs and have pages for each user + tag combo, as well as overall tag pages.</li>
+<li>On individual link stats pages, make a table of where the clicks for your links are coming from by country. Bonus -- display this on a map.</li>
+<li>Add an option to the individual and group stats pages where you can see stats for the last week, last 30 days, last year, or all time.</li>
+<li>Add functional tests for all your pages.</li>
+</ul>
+
+<h2>
+<a id="additional-resources" class="anchor" href="#additional-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Additional Resources</h2>
+
+<ul>
+<li>
+<a href="http://hashids.org/python/">Hashids</a>. These may be useful for creating short URLs.</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/bdeshaz/urly-bird">Urly-bird</a> is maintained by <a href="https://github.com/bdeshaz">bdeshaz</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
