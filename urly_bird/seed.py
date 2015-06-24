@@ -30,7 +30,8 @@ def seed_users():
     for num in range(0, 10):
         username = fake.name()
         email = fake.free_email()
-        new_user = User(username=username, password='password', email=email)
+        new_user = User(username=username, email=email)
+        new_user.set_password('password')
         new_user.save()
 
 
