@@ -50,11 +50,13 @@ class ClickCreateView(generics.CreateAPIView):
         serializer.save()
 
 
-class ClickDetailView(generics.RetrieveUpdateDestroyAPIView):
+class ClickDetailView(generics.RetrieveAPIView):
     permission_classes = (permissions.IsAuthenticated,
-                          OwnsRelatedClick)
+                          )
     serializer_class = ClickSerializer
-    # queryset = Click.objects.all()
+    queryset = Click.objects.all()
 
-    def get_queryset(self):
-        return Click.objects.filter(clicker=self.request.user)
+    # def get_queryset(self):
+    #     return Click.objects.filter(clicker=self.request.user)
+    #  FIXME: so the above is only trying to show clicks that have been made
+    #  FIXME: by that user

@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^clicks/$', views.ClickCreateView.as_view()),
     url(r'^clicks/(?P<pk>\d+)$', views.ClickDetailView.as_view(), name="click-detail"),
+    url(r'^bookmarks/(?P<pk>\d+)/$', views.BookmarkViewSet, name="bkmk")
 ]
