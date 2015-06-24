@@ -4,7 +4,7 @@ from . import views
 from django.contrib import admin
 
 router = routers.DefaultRouter()
-router.register(r'bookmarks', views.BookmarkViewSet)
+router.register(r'bookmarks', views.BookmarkViewSet, base_name="bookmark")
 
 urlpatterns = [
     # url(r'^admin/', include(admin.site.urls)),

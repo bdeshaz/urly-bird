@@ -46,7 +46,8 @@ INSTALLED_APPS = (
     'bootstrap3',
     'rest_framework',
     'api',
-    'debug_toolbar'
+    'debug_toolbar',
+    'django_filters',
 
 )
 

@@ -22,7 +22,7 @@ def bookmarks_context(request, bookmarks, header, **kwargs):
     page = request.GET.get('page', 1)
     per_page = request.GET.get('per_page', 20)
 
-    bookmarks = bookmarks.annotate(Count('click')).select_related()
+    bookmarks = bookmarks.annotate(Count('clicks')).select_related()
     bookmarks_paginator = Paginator(bookmarks, per_page)
 
     context = kwargs.copy()
