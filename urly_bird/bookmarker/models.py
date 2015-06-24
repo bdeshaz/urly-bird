@@ -10,5 +10,4 @@ class Bookmark(models.Model):
     def __str__(self):
         return self.creator.username
 
-    def total_clicks(self):
-        return self.click_set.count()
+

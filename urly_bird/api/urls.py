@@ -11,5 +11,5 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^clicks/$', views.ClickCreateView.as_view()),
-    url(r'^clicks/(?P<pk>\d+)$', views.ClickDetailView.as_view(), name="bookmark-detail"),
+    url(r'^clicks/(?P<pk>\d+)$', views.ClickDetailView.as_view(), name="click-detail"),
 ]

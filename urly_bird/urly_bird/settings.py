@@ -46,6 +46,8 @@ INSTALLED_APPS = (
     'bootstrap3',
     'rest_framework',
     'api',
+    'debug_toolbar'
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -132,4 +134,9 @@ BOOTSTRAP3 = {
 
     # Include jQuery with Bootstrap JavaScript (affects django-bootstrap3 template tags)
     'include_jquery': True,
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5
 }
