@@ -38,16 +38,16 @@ class BookmarkViewSet(viewsets.ModelViewSet):
     filter_class = BookmarkFilter
 
 
-class ClickCreateView(generics.CreateAPIView):
-    permission_classes = (permissions.IsAuthenticated,
-                          OwnsRelatedClick)
-    serializer_class = ClickSerializer
-
-    def perform_create(self, serializer):
-        click = serializer.validated_data['click']
-        if self.request.user != click.clicker:
-            raise PermissionError
-        serializer.save()
+# class ClickCreateView(generics.CreateAPIView):
+#     permission_classes = (permissions.IsAuthenticated,
+#                           OwnsRelatedClick)
+#     serializer_class = ClickSerializer
+#
+#     def perform_create(self, serializer):
+#         click = serializer.validated_data['click']
+#         if self.request.user != click.clicker:
+#             raise PermissionError
+#         serializer.save()
 
 
 class ClickDetailView(generics.RetrieveAPIView):
@@ -56,7 +56,12 @@ class ClickDetailView(generics.RetrieveAPIView):
     serializer_class = ClickSerializer
     queryset = Click.objects.all()
 
-    # def get_queryset(self):
-    #     return Click.objects.filter(clicker=self.request.user)
-    #  FIXME: so the above is only trying to show clicks that have been made
-    #  FIXME: by that user
+
+class ClickListView(generics.ListAPIView):
+    permission_classes = (permissions.IsAuthenticated,
+                          )
+    serializer_class = ClickSerializer
+    # queryset = Click.objects.all()
+
+    def get_queryset(self):
+        return Click.objects.filter(bookmark__pk=self.kwargs['pk'])
