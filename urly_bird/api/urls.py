@@ -13,5 +13,6 @@ urlpatterns = [
     # url(r'^clicks/$', views.ClickListView.as_view()),
     # url(r'^clicks/(?P<pk>\d+)$', views.ClickDetailView.as_view(), name="click-detail"),
     url(r'^bookmarks/(?P<pk>\d+)/$', views.BookmarkViewSet, name="bkmk"),
-    url(r'^bookmarks/(?P<pk>\d+)/clicks/$', views.ClickListView.as_view(), name="user-clicks")
+    url(r'^bookmarks/(?P<pk>\d+)/clicks/$', views.ClickListView.as_view(), name="user-clicks"),
+    url(r'^user/$', views.UserCreateListRetrieveViewSet.as_view({'get': 'list', 'post': 'create'}))
 ]

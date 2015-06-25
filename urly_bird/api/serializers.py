@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from hashids import Hashids
 from rest_framework import serializers
 from bookmarker.models import Bookmark
@@ -35,3 +36,11 @@ class BookmarkSerializer(serializers.HyperlinkedModelSerializer):
             'id', 'url', 's_code', 'creator',
             'click_count', 'click_set', 'clicks'
         )
+
+
+class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')

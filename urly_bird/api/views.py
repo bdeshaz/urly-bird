@@ -1,6 +1,7 @@
+from django.contrib.auth.models import User
 from django.db.models import Count
-from rest_framework import viewsets, permissions, generics, filters
-from .serializers import BookmarkSerializer, ClickSerializer
+from rest_framework import viewsets, permissions, generics, filters, mixins
+from .serializers import BookmarkSerializer, ClickSerializer, UserSerializer
 from bookmarker.models import Bookmark
 from api.permissions import IsOwnerOrReadOnly, OwnsRelatedClick
 from tracker.models import Click
@@ -65,3 +66,16 @@ class ClickListView(generics.ListAPIView):
 
     def get_queryset(self):
         return Click.objects.filter(bookmark__pk=self.kwargs['pk'])
+
+
+class UserCreateListRetrieveViewSet(mixins.CreateModelMixin,
+                                    mixins.ListModelMixin,
+                                    viewsets.GenericViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
